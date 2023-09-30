@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Application.Features.Brands.Commands.Create;
 
 public class CreateBrandCommand : IRequest<CreatedBrandResponse>
-{8
+{
     public string Name { get; set; }
 
 
