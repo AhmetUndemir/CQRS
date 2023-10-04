@@ -12,7 +12,7 @@ public class ModelConfiguration : IEntityTypeConfiguration<Model>
 
         builder.Property(b => b.Id).HasColumnName("Id").IsRequired();
         builder.Property(b => b.Name).HasColumnName("Name").IsRequired();
-        builder.Property(b => b.Brand).HasColumnName("BrandId").IsRequired();
+        builder.Property(b => b.BrandId).HasColumnName("BrandId").IsRequired();
         builder.Property(b => b.FuelId).HasColumnName("FuelId").IsRequired();
         builder.Property(b => b.TransmissionId).HasColumnName("TransmissionId").IsRequired();
         builder.Property(b => b.DailyPrice).HasColumnName("DailyPrice").IsRequired();
@@ -26,8 +26,8 @@ public class ModelConfiguration : IEntityTypeConfiguration<Model>
         builder.HasIndex(indexExpression: b => b.Name, name: "UK_Models_Name").IsUnique();
 
         builder.HasOne(b => b.Brand);
-        builder.HasOne(b => b.Transmission);
         builder.HasOne(b => b.Fuel);
+        builder.HasOne(b => b.Transmission);
 
         builder.HasMany(b => b.Cars);
 
